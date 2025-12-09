@@ -1,6 +1,9 @@
 # compiled output
 /dist
-/node_modules
+**/dist
+**/node_modules/
+/app-nest/node_modules/
+node_modules/
 /build
 
 # Logs
@@ -54,3 +57,20 @@ pids
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+
+# Docker
+docker-data/
+*.pid
+
+# Archivos de pruebas
+coverage/
+.junit/
+reports/
+
+# Archivos de sistema
+*.bak
+*.orig
+
+# Package
+package-lock.json
