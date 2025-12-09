@@ -3,17 +3,25 @@ import { AppModule } from './app.module';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { ValidationPipe } from '@nestjs/common';
 
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
 
-  //validationPipe global 
 
+  // --- Validación Global (ValidationPipe) ---
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true, 
+      forbidNonWhitelisted: true,
+      transform: true, 
+      transformOptions: {
+        enableImplicitConversion: true,
+      }
+    }),
+  );
 
-  //Interceptors and filters
-
-
-  //Swagger set up
+  // --- Swagger Set Up ---
   const config = new DocumentBuilder()
   .setTitle('p7_Api')
   .setDescription('API documentation for the p7 aplication')
